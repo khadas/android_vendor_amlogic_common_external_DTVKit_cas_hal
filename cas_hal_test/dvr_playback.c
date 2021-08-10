@@ -289,6 +289,8 @@ int ext_dvr_playback(const char *path, CasHandle cas_handle)
        result = AmTsPlayer_setSyncMode(tsplayer_handle, TS_SYNC_PCRMASTER );
        INF( " TsPlayer set Syncmode PCRMASTER %s, result(%d)\n", (result)? "FAIL" : "OK", result);
 
+
+	memset(&vparam, 0, sizeof(vparam));
 	vparam.codectype = vfmt;
 	vparam.pid = vpid;
 	result = AmTsPlayer_setVideoParams(tsplayer_handle, &vparam);
@@ -296,6 +298,7 @@ int ext_dvr_playback(const char *path, CasHandle cas_handle)
 	result = AmTsPlayer_startVideoDecoding(tsplayer_handle);
 	INF( " TsPlayer start video decoding %s, result(%d)\n", (result)? "FAIL" : "OK", result);
 
+	memset(&aparam, 0, sizeof(aparam));
 	aparam.codectype = afmt;
 	aparam.pid = apid;
 	//aparam.seclevel = 10;

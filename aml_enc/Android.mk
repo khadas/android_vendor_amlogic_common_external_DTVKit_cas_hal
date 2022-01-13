@@ -17,8 +17,8 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libaml_enc_dvb
-LOCAL_MULTILIB := 32
-LOCAL_ARM_MODE := arm
+LOCAL_MULTILIB := both
+#LOCAL_ARM_MODE := arm
 LOCAL_FILE_LIST := $(wildcard $(LOCAL_PATH)/*.c)
 LOCAL_SRC_FILES := $(LOCAL_FILE_LIST:$(LOCAL_PATH)/%=%)
 
